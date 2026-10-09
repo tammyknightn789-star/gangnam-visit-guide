@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>강남 더글로리 쩜오 예약 변경 시 확인할 사항</title>
+  <meta name="description" content="강남 더글로리 쩜오 예약 후 방문 날짜, 도착 시간, 인원이나 픽업 장소가 변경됐을 때 다시 확인해야 할 예약 조건과 전달 방법을 안내합니다.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f3f0;
+      color: #282725;
+      font-family: Arial, "Malgun Gothic", sans-serif;
+      line-height: 1.8;
+    }
+
+    main {
+      width: min(830px, calc(100% - 32px));
+      margin: 48px auto;
+      padding: 46px 34px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 10px 32px rgba(61, 52, 42, .09);
+    }
+
+    h1 {
+      margin: 0 0 22px;
+      font-size: 32px;
+      line-height: 1.4;
+      color: #40362c;
+    }
+
+    h2 {
+      margin: 44px 0 16px;
+      font-size: 23px;
+      line-height: 1.5;
+      color: #74593d;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: #60492f;
+    }
+
+    p,
+    li,
+    th,
+    td {
+      font-size: 16px;
+    }
+
+    .intro {
+      font-size: 17px;
+      color: #504d49;
+    }
+
+    .change-summary {
+      margin: 30px 0;
+      padding: 22px;
+      background: #f7f1e9;
+      border-left: 5px solid #99734c;
+    }
+
+    .change-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 25px 0;
+    }
+
+    .change-card {
+      padding: 20px;
+      background: #fbfaf8;
+      border: 1px solid #e5ded4;
+      border-radius: 9px;
+    }
+
+    .change-card p {
+      margin-bottom: 0;
+    }
+
+    .check-table {
+      width: 100%;
+      margin: 25px 0;
+      border-collapse: collapse;
+    }
+
+    .check-table th,
+    .check-table td {
+      padding: 15px;
+      border: 1px solid #ded8d0;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .check-table thead th {
+      background: #604a36;
+      color: #fff;
+    }
+
+    .check-table tbody th {
+      width: 26%;
+      background: #f2eee9;
+      color: #55402e;
+    }
+
+    .process {
+      margin: 25px 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: process;
+    }
+
+    .process li {
+      position: relative;
+      margin: 15px 0;
+      padding: 20px 20px 20px 70px;
+      background: #f7f7f6;
+      border-radius: 9px;
+      counter-increment: process;
+    }
+
+    .process li::before {
+      content: counter(process);
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 34px;
+      height: 34px;
+      color: #fff;
+      background: #846548;
+      border-radius: 50%;
+      line-height: 34px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .process strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #5c452f;
+    }
+
+    .message-box {
+      margin: 26px 0;
+      padding: 22px;
+      color: #fff;
+      background: #302c28;
+      border-radius: 9px;
+    }
+
+    .message-box p {
+      margin: 6px 0;
+    }
+
+    .check-list {
+      padding: 22px 24px 22px 44px;
+      background: #f4f5f5;
+      border-radius: 9px;
+    }
+
+    .check-list li {
+      margin: 8px 0;
+    }
+
+    .notice {
+      margin-top: 34px;
+      padding: 18px 20px;
+      background: #fff7e5;
+      border: 1px solid #ead4a1;
+      border-radius: 8px;
+    }
+
+    .reference {
+      margin-top: 42px;
+      padding-top: 24px;
+      border-top: 1px solid #ddd8d2;
+    }
+
+    a {
+      color: #84521f;
+      font-weight: 700;
+    }
+
+    @media (max-width: 680px) {
+      main {
+        margin: 20px auto;
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 27px;
+      }
+
+      h2 {
+        font-size: 21px;
+      }
+
+      .change-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .check-table th,
+      .check-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .check-table thead {
+        display: none;
+      }
+
+      .check-table tbody th {
+        border-bottom: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <article>
+      <h1>강남 더글로리 쩜오 예약 변경 시 확인할 사항</h1>
+
+      <p class="intro">
+        강남 더글로리 쩜오 예약을 확인한 뒤에도 방문 날짜나 도착 시간,
+        일행 인원과 픽업 장소가 달라질 수 있습니다.
+        예약 당시와 다른 계획으로 방문하려면 바뀐 내용만 전달하는 데서 끝내지 말고
+        기존 예약을 유지할 수 있는지 다시 확인하는 것이 좋습니다.
+      </p>
+
+      <div class="change-summary">
+        <strong>예약 변경의 핵심</strong><br>
+        기존 예약 내용 · 변경된 항목 · 새로 원하는 조건 ·
+        변경 가능 여부 · 최종 확정 내용을 순서대로 확인하세요.
+      </div>
+
+      <h2>1. 무엇이 달라졌는지 먼저 구분하세요</h2>
+
+      <div class="change-grid">
+        <section class="change-card">
+          <h3>날짜 변경</h3>
+          <p>
+            새로운 날짜의 영업시간과 예약 가능 여부,
+            공간 배정을 처음부터 다시 확인합니다.
+          </p>
+        </section>
+
+        <section class="change-card">
+          <h3>시간 변경</h3>
+          <p>
+            바뀐 도착 시각에도 이용할 수 있는지와
+            기존 예약 시간이 유지되는지 확인합니다.
+          </p>
+        </section>
+
+        <section class="change-card">
+          <h3>인원 변경</h3>
+          <p>
+            변경된 인원에 맞는 공간이 가능한지와
+            기존 좌석 요청을 반영할 수 있는지 살펴봅니다.
+          </p>
+        </section>
+
+        <section class="change-card">
+          <h3>픽업 변경</h3>
+          <p>
+            새로운 출발 위치와 시각, 탑승 인원을 전달하고
+            배차 가능 여부를 다시 확인합니다.
+          </p>
+        </section>
+      </div>
+
+      <h2>2. 날짜가 바뀌면 새로운 예약처럼 확인하세요</h2>
+
+      <p>
+        방문 날짜가 달라지면 이전에 안내받은 영업시간이나
+        공간 배정 가능 여부가 그대로 적용되지 않을 수 있습니다.
+        변경할 날짜와 도착 예정 시각, 현재 인원을 기준으로
+        예약 가능 여부를 다시 확인하세요.
+      </p>
+
+      <table class="check-table">
+        <thead>
+          <tr>
+            <th>확인 항목</th>
+            <th>다시 물어볼 내용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>영업시간</th>
+            <td>새로운 방문 날짜에 적용되는 운영시간을 확인합니다.</td>
+          </tr>
+          <tr>
+            <th>예약 가능 여부</th>
+            <td>변경한 시간대와 인원으로 이용할 수 있는지 확인합니다.</td>
+          </tr>
+          <tr>
+            <th>공간 배정</th>
+            <td>기존에 요청했던 좌석과 공간 조건을 반영할 수 있는지 물어봅니다.</td>
+          </tr>
+          <tr>
+            <th>예약 확정</th>
+            <td>변경된 일정으로 최종 예약이 다시 확정되었는지 확인합니다.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>3. 도착 시간이 늦어지면 바로 알리세요</h2>
+
+      <p>
+        앞선 일정이나 교통 문제로 도착 시간이 달라졌다면
+        변경된 예상 시각을 가능한 한 빨리 전달하는 것이 좋습니다.
+        시간이 늦어진다고 해서 기존 예약이 자동으로 같은 조건으로
+        유지된다고 판단해서는 안 됩니다.
+      </p>
+
+      <ul class="check-list">
+        <li>새롭게 예상되는 도착 시각</li>
+        <li>변경된 시간에도 예약을 유지할 수 있는지</li>
+        <li>이용시간이 언제부터 적용되는지</li>
+        <li>늦게 합류하는 일행의 인원과 시각</li>
+        <li>공간 배정이 변경될 가능성이 있는지</li>
+      </ul>
+
+      <h2>4. 인원이 바뀌면 공간 요청도 다시 확인하세요</h2>
+
+      <p>
+        인원이 늘면 기존 공간에서 모두 함께 이용할 수 있는지 확인해야 합니다.
+        반대로 인원이 줄어들었을 때도 기존 공간과 안내 조건이
+        그대로 유지되는지 물어보는 것이 좋습니다.
+      </p>
+
+      <p>
+        전체 인원이 함께 앉는 좌석이나 대화 환경처럼
+        처음 예약할 때 요청한 조건이 있다면
+        변경된 인원에서도 반영할 수 있는지 다시 확인하세요.
+      </p>
+
+      <h2>5. 픽업서비스 변경은 배차를 다시 확인하세요</h2>
+
+      <p>
+        출발 위치와 희망 시각, 차량에 탑승할 인원이 달라지면
+        기존 픽업 안내가 그대로 적용되지 않을 수 있습니다.
+        새로운 정보를 전달하고 실제 배차 가능 여부와 만날 장소를 다시 확인하세요.
+      </p>
+
+      <ul class="check-list">
+        <li>변경된 출발 위치와 정확한 만남 지점</li>
+        <li>새로운 픽업 희망 시각</li>
+        <li>실제로 차량에 탑승할 인원</li>
+        <li>기존 배차가 취소되거나 변경되었는지</li>
+        <li>새로운 내용으로 배차가 확정되었는지</li>
+      </ul>
+
+      <h2>6. 변경 요청은 다음 순서로 전달하세요</h2>
+
+      <ol class="process">
+        <li>
+          <strong>기존 예약 알리기</strong>
+          예약한 이름과 기존 날짜, 시각 및 인원을 먼저 전달합니다.
+        </li>
+
+        <li>
+          <strong>변경된 항목 설명하기</strong>
+          날짜, 시간, 인원 또는 픽업 가운데 달라진 내용만 분명하게 말합니다.
+        </li>
+
+        <li>
+          <strong>기존 조건 유지 여부 확인하기</strong>
+          공간과 예약 상태를 그대로 유지할 수 있는지 물어봅니다.
+        </li>
+
+        <li>
+          <strong>변경 결과 확인하기</strong>
+          새로운 일정과 인원으로 예약이 확정되었는지 확인합니다.
+        </li>
+
+        <li>
+          <strong>일행에게 다시 공유하기</strong>
+          최종 안내받은 내용을 같은 문장으로 전달합니다.
+        </li>
+      </ol>
+
+      <h2>7. 예약 변경 메시지를 한 번에 정리하세요</h2>
+
+      <div class="message-box">
+        <p>강남 더글로리 쩜오 예약 변경 문의드립니다.</p>
+        <p>기존 예약: ○월 ○일 / 오후 ○시 / ○명</p>
+        <p>변경 요청: ○월 ○일 / 오후 ○시 / ○명</p>
+        <p>공간 요청: 기존 요청 유지 희망</p>
+        <p>픽업 변경: 출발 위치 ○○ / 탑승 ○명</p>
+        <p>변경 가능 여부와 최종 예약 상태를 안내 부탁드립니다.</p>
+      </div>
+
+      <h2>8. 최종 확정 내용은 이전 메모와 분리하세요</h2>
+
+      <p>
+        예약 내용을 변경한 뒤에는 이전 정보를 그대로 남겨두면
+        일행이 잘못된 날짜나 장소를 확인할 수 있습니다.
+        기존 메모를 수정하거나 최종 확정된 내용임을 표시해
+        하나의 정보만 공유하세요.
+      </p>
+
+      <div class="notice">
+        강남 더글로리 쩜오의 일정 변경, 공간 배정과 픽업서비스 조건은
+        방문 날짜와 상황에 따라 달라질 수 있습니다.
+        변경 요청을 보낸 뒤 최종 확정 안내를 받았는지 반드시 확인하세요.
+      </div>
+
+      <div class="reference">
+        <p>
+          강남 더글로리 쩜오 예약과 변경 관련 최신 안내는
+          <a href="https://thegloryjeomo.clickn.co.kr/"
+             target="_blank"
+             rel="noopener noreferrer">
+            강남 더글로리 쩜오 공식 안내 페이지
+          </a>
+          에서 확인할 수 있습니다.
+        </p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
