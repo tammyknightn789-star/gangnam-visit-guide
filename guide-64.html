@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>강남 구구단 쩜오 일정 후보별 예약 비교 방법</title>
+  <meta name="description" content="강남 구구단 쩜오 방문 날짜가 정해지지 않았을 때 여러 일정 후보의 예약 가능 여부, 예상 인원, 도착 시간, 공간과 픽업 조건을 비교하는 방법입니다.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f4f0;
+      color: #282824;
+      font-family: Arial, "Malgun Gothic", sans-serif;
+      line-height: 1.8;
+    }
+
+    main {
+      width: min(840px, calc(100% - 32px));
+      margin: 48px auto;
+      padding: 46px 34px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 10px 32px rgba(59, 57, 43, .09);
+    }
+
+    h1 {
+      margin: 0 0 22px;
+      font-size: 32px;
+      line-height: 1.4;
+      color: #414029;
+    }
+
+    h2 {
+      margin: 44px 0 16px;
+      font-size: 23px;
+      line-height: 1.5;
+      color: #77713b;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: #5e592f;
+    }
+
+    p,
+    li,
+    th,
+    td {
+      font-size: 16px;
+    }
+
+    .intro {
+      font-size: 17px;
+      color: #525149;
+    }
+
+    .summary {
+      margin: 30px 0;
+      padding: 22px;
+      background: #f6f3df;
+      border-left: 5px solid #a0984e;
+    }
+
+    .candidate-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .candidate-card {
+      padding: 20px;
+      background: #fbfaf6;
+      border: 1px solid #e5e1ca;
+      border-radius: 9px;
+    }
+
+    .candidate-card p {
+      margin-bottom: 0;
+    }
+
+    .compare-table {
+      width: 100%;
+      margin: 25px 0;
+      border-collapse: collapse;
+    }
+
+    .compare-table th,
+    .compare-table td {
+      padding: 14px;
+      border: 1px solid #dddccd;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .compare-table thead th {
+      background: #686438;
+      color: #fff;
+    }
+
+    .compare-table tbody th {
+      background: #f2f0e3;
+      color: #57532d;
+    }
+
+    .steps {
+      margin: 25px 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: steps;
+    }
+
+    .steps li {
+      position: relative;
+      margin: 15px 0;
+      padding: 20px 20px 20px 70px;
+      background: #f7f7f5;
+      border-radius: 9px;
+      counter-increment: steps;
+    }
+
+    .steps li::before {
+      content: counter(steps);
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 34px;
+      height: 34px;
+      background: #817c42;
+      color: #fff;
+      border-radius: 50%;
+      line-height: 34px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .steps strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #5c582f;
+    }
+
+    .message-box {
+      margin: 26px 0;
+      padding: 22px;
+      color: #fff;
+      background: #33332a;
+      border-radius: 9px;
+    }
+
+    .message-box p {
+      margin: 6px 0;
+    }
+
+    .check-list {
+      padding: 22px 24px 22px 44px;
+      background: #f4f5f4;
+      border-radius: 9px;
+    }
+
+    .check-list li {
+      margin: 8px 0;
+    }
+
+    .notice {
+      margin-top: 34px;
+      padding: 18px 20px;
+      background: #fff7e6;
+      border: 1px solid #ead5a4;
+      border-radius: 8px;
+    }
+
+    .reference {
+      margin-top: 42px;
+      padding-top: 24px;
+      border-top: 1px solid #dddcd5;
+    }
+
+    a {
+      color: #736d27;
+      font-weight: 700;
+    }
+
+    @media (max-width: 720px) {
+      main {
+        margin: 20px auto;
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 27px;
+      }
+
+      h2 {
+        font-size: 21px;
+      }
+
+      .candidate-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .compare-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <article>
+      <h1>강남 구구단 쩜오 일정 후보별 예약 비교 방법</h1>
+
+      <p class="intro">
+        강남 구구단 쩜오 방문 날짜가 아직 확정되지 않았다면
+        가능한 모든 날짜를 단순히 나열하기보다 선호 순서와 시간대를 정리하는 것이 좋습니다.
+        일정 후보마다 인원과 도착 시각, 공간 요청 및 픽업 조건을 같은 기준으로 확인하면
+        일행과 최종 날짜를 결정하기 편해집니다.
+      </p>
+
+      <div class="summary">
+        <strong>일정 후보를 비교하는 기본 원칙</strong><br>
+        날짜만 바꾸고 나머지 조건은 동일하게 맞춰야
+        각 일정의 실제 차이를 비교할 수 있습니다.
+      </div>
+
+      <h2>1. 일정 후보는 세 개 이내로 정리하세요</h2>
+
+      <p>
+        가능한 날짜를 너무 많이 전달하면 어떤 일정을 우선 확인해야 하는지
+        불분명해질 수 있습니다. 가장 원하는 날짜부터
+        두 번째와 세 번째 후보까지 순서를 정해보세요.
+      </p>
+
+      <div class="candidate-grid">
+        <section class="candidate-card">
+          <h3>1순위 일정</h3>
+          <p>
+            일행 대부분이 참석할 수 있고
+            가장 선호하는 날짜와 시간입니다.
+          </p>
+        </section>
+
+        <section class="candidate-card">
+          <h3>2순위 일정</h3>
+          <p>
+            첫 번째 일정이 어려울 때 선택할 수 있는
+            현실적인 대체 날짜입니다.
+          </p>
+        </section>
+
+        <section class="candidate-card">
+          <h3>3순위 일정</h3>
+          <p>
+            인원이나 시간을 조정하면 가능한
+            마지막 후보 일정입니다.
+          </p>
+        </section>
+      </div>
+
+      <h2>2. 모든 후보를 같은 조건으로 확인하세요</h2>
+
+      <p>
+        날짜마다 다른 인원과 도착 시간을 적용하면
+        어떤 이유로 안내가 달라졌는지 파악하기 어렵습니다.
+        처음 비교할 때는 인원과 희망 시간, 공간 요청을 동일하게 맞추세요.
+      </p>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>비교 항목</th>
+            <th>1순위</th>
+            <th>2순위</th>
+            <th>3순위</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>날짜</th>
+            <td>○월 ○일</td>
+            <td>○월 ○일</td>
+            <td>○월 ○일</td>
+          </tr>
+          <tr>
+            <th>도착 시각</th>
+            <td>오후 ○시</td>
+            <td>오후 ○시</td>
+            <td>오후 ○시</td>
+          </tr>
+          <tr>
+            <th>예상 인원</th>
+            <td>○명</td>
+            <td>○명</td>
+            <td>○명</td>
+          </tr>
+          <tr>
+            <th>예약 가능</th>
+            <td>확인 필요</td>
+            <td>확인 필요</td>
+            <td>확인 필요</td>
+          </tr>
+          <tr>
+            <th>공간 요청</th>
+            <td>같은 조건</td>
+            <td>같은 조건</td>
+            <td>같은 조건</td>
+          </tr>
+          <tr>
+            <th>픽업 여부</th>
+            <td>확인 필요</td>
+            <td>확인 필요</td>
+            <td>확인 필요</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>3. 날짜별 참석 인원은 별도로 표시하세요</h2>
+
+      <p>
+        모든 일정에서 참석 인원이 같지 않다면
+        날짜별 확정 인원과 변동 가능 인원을 구분하세요.
+        최대 예상 인원까지 전달하면 각 날짜에 적합한 공간을 확인하기 쉽습니다.
+      </p>
+
+      <ul class="check-list">
+        <li>각 날짜에 참석이 확정된 사람</li>
+        <li>일정에 따라 참석 여부가 달라지는 사람</li>
+        <li>늦게 합류할 가능성이 있는 인원</li>
+        <li>모든 사람이 참석했을 때의 최대 인원</li>
+        <li>최종 참석 여부를 결정할 수 있는 시점</li>
+      </ul>
+
+      <h2>4. 일정마다 실제 도착 시간을 계산하세요</h2>
+
+      <p>
+        같은 일행이라도 평일과 휴일, 앞선 약속의 유무에 따라
+        실제 도착 가능한 시간이 달라질 수 있습니다.
+        가장 빠른 시간을 전달하기보다 각 일정에서 지킬 수 있는
+        현실적인 도착 시간대를 정하세요.
+      </p>
+
+      <ol class="steps">
+        <li>
+          <strong>앞선 일정 확인</strong>
+          식사나 업무 등 먼저 끝내야 하는 일정의 종료 시간을 계산합니다.
+        </li>
+
+        <li>
+          <strong>이동시간 계산</strong>
+          출발 장소에서 일행이 모이는 지점까지 필요한 시간을 확인합니다.
+        </li>
+
+        <li>
+          <strong>합류시간 반영</strong>
+          여러 장소에서 출발한다면 가장 늦게 도착하는 사람을 고려합니다.
+        </li>
+
+        <li>
+          <strong>희망 시간대 전달</strong>
+          한 시각으로 확정하기 어렵다면 가능한 범위를 전달합니다.
+        </li>
+      </ol>
+
+      <h2>5. 픽업서비스도 일정별로 확인하세요</h2>
+
+      <p>
+        첫 번째 날짜에 픽업이 가능하다는 안내가
+        다른 후보 일정에도 그대로 적용된다고 단정할 수는 없습니다.
+        날짜별 출발 위치와 희망 시각, 탑승 인원을 전달하고
+        실제 배차 가능 여부를 각각 확인하세요.
+      </p>
+
+      <ul class="check-list">
+        <li>일정별 픽업 희망 여부</li>
+        <li>각 날짜의 정확한 출발 위치</li>
+        <li>희망 출발 시각과 탑승 인원</li>
+        <li>배차가 가능한 후보 일정</li>
+        <li>차량을 만날 장소와 확정 상태</li>
+      </ul>
+
+      <h2>6. 문의 메시지에 우선순위를 표시하세요</h2>
+
+      <div class="message-box">
+        <p>강남 구구단 쩜오 이용 문의드립니다.</p>
+        <p>예상 인원: 확정 ○명 / 최대 ○명</p>
+        <p>1순위: ○월 ○일 오후 ○시</p>
+        <p>2순위: ○월 ○일 오후 ○시</p>
+        <p>3순위: ○월 ○일 오후 ○시</p>
+        <p>공간 요청: 전체 인원이 함께 이용 가능한 자리</p>
+        <p>각 일정의 예약 가능 여부와 픽업 가능 여부를 안내 부탁드립니다.</p>
+      </div>
+
+      <h2>7. 최종 날짜를 정하면 나머지 후보를 정리하세요</h2>
+
+      <p>
+        가능한 날짜를 안내받은 뒤에는 일행과 최종 일정을 결정하고
+        선택한 날짜의 예약 상태를 확인하세요.
+        후보로만 문의한 날짜를 예약된 일정으로 오해하지 않도록
+        최종 선택한 날짜와 시간을 명확하게 전달하는 것이 좋습니다.
+      </p>
+
+      <p>
+        공식 페이지에 사용된 사진은 공용 연출 이미지로 안내되어 있습니다.
+        공간의 분위기는 참고하되 실제 구구단 내부와 좌석 배정은
+        최종 선택한 방문 날짜와 인원을 기준으로 확인하세요.
+      </p>
+
+      <div class="notice">
+        강남 구구단 쩜오의 영업시간과 예약 가능 여부,
+        공간 배정 및 픽업서비스 조건은 날짜마다 달라질 수 있습니다.
+        최종 일정을 선택한 뒤 예약 확정 안내를 다시 확인하세요.
+      </div>
+
+      <div class="reference">
+        <p>
+          강남 구구단 쩜오 예약과 일정 관련 최신 안내는
+          <a href="https://gugudanjeomo.clickn.co.kr/"
+             target="_blank"
+             rel="noopener noreferrer">
+            강남 구구단 쩜오 공식 안내 페이지
+          </a>
+          에서 확인할 수 있습니다.
+        </p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
