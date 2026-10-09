@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>강남 크크 쩜오 예약 문의 채널과 상담 내용 정리법</title>
+  <meta name="description" content="강남 크크 쩜오 예약 시 전화, 카카오톡, 텔레그램 문의 채널을 선택하고 날짜, 인원, 공간 요청과 픽업서비스 상담 내용을 일관되게 관리하는 방법입니다.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f2f4f5;
+      color: #25292c;
+      font-family: Arial, "Malgun Gothic", sans-serif;
+      line-height: 1.8;
+    }
+
+    main {
+      width: min(830px, calc(100% - 32px));
+      margin: 48px auto;
+      padding: 46px 34px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 10px 32px rgba(43, 53, 59, .09);
+    }
+
+    h1 {
+      margin: 0 0 22px;
+      font-size: 32px;
+      line-height: 1.4;
+      color: #26363e;
+    }
+
+    h2 {
+      margin: 44px 0 16px;
+      font-size: 23px;
+      line-height: 1.5;
+      color: #396778;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: #315766;
+    }
+
+    p,
+    li,
+    th,
+    td {
+      font-size: 16px;
+    }
+
+    .intro {
+      font-size: 17px;
+      color: #4a555a;
+    }
+
+    .channel-point {
+      margin: 30px 0;
+      padding: 22px;
+      background: #eaf3f5;
+      border-left: 5px solid #55828f;
+    }
+
+    .channel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .channel-card {
+      padding: 20px;
+      background: #fafbfb;
+      border: 1px solid #dce5e7;
+      border-radius: 9px;
+    }
+
+    .channel-card p {
+      margin-bottom: 0;
+    }
+
+    .record-table {
+      width: 100%;
+      margin: 25px 0;
+      border-collapse: collapse;
+    }
+
+    .record-table th,
+    .record-table td {
+      padding: 15px;
+      border: 1px solid #d8e0e2;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .record-table th {
+      width: 27%;
+      background: #edf3f4;
+      color: #315662;
+    }
+
+    .rule-list {
+      margin: 25px 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: rule;
+    }
+
+    .rule-list li {
+      position: relative;
+      margin: 15px 0;
+      padding: 20px 20px 20px 70px;
+      background: #f6f8f8;
+      border-radius: 9px;
+      counter-increment: rule;
+    }
+
+    .rule-list li::before {
+      content: counter(rule);
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 34px;
+      height: 34px;
+      color: #fff;
+      background: #477281;
+      border-radius: 50%;
+      line-height: 34px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .rule-list strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #305766;
+    }
+
+    .message-box {
+      margin: 26px 0;
+      padding: 22px;
+      color: #fff;
+      background: #29383e;
+      border-radius: 9px;
+    }
+
+    .message-box p {
+      margin: 6px 0;
+    }
+
+    .check-list {
+      padding: 22px 24px 22px 44px;
+      background: #f4f6f6;
+      border-radius: 9px;
+    }
+
+    .check-list li {
+      margin: 8px 0;
+    }
+
+    .notice {
+      margin-top: 34px;
+      padding: 18px 20px;
+      background: #fff7e7;
+      border: 1px solid #e9d5a6;
+      border-radius: 8px;
+    }
+
+    .reference {
+      margin-top: 42px;
+      padding-top: 24px;
+      border-top: 1px solid #d8dfe1;
+    }
+
+    a {
+      color: #287087;
+      font-weight: 700;
+    }
+
+    @media (max-width: 700px) {
+      main {
+        margin: 20px auto;
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 27px;
+      }
+
+      h2 {
+        font-size: 21px;
+      }
+
+      .channel-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .record-table th,
+      .record-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .record-table th {
+        border-bottom: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <article>
+      <h1>강남 크크 쩜오 예약 문의 채널과 상담 내용 정리법</h1>
+
+      <p class="intro">
+        강남 크크 쩜오 예약은 전화, 카카오톡이나 텔레그램처럼
+        여러 연락 방법을 통해 문의할 수 있습니다.
+        편한 채널을 고르는 것도 중요하지만 서로 다른 채널로 같은 내용을 반복해서 보내면
+        날짜나 인원, 공간 요청이 다르게 전달될 수 있으므로 관리 방법을 정해두는 것이 좋습니다.
+      </p>
+
+      <div class="channel-point">
+        <strong>주요 문의 채널은 하나로 정하세요.</strong><br>
+        처음 상담한 채널에서 예약 확정과 변경사항까지 이어서 확인하면
+        대화의 흐름과 최종 조건을 파악하기 편합니다.
+      </div>
+
+      <h2>1. 문의 목적에 맞는 연락 방법을 선택하세요</h2>
+
+      <div class="channel-grid">
+        <section class="channel-card">
+          <h3>전화 문의</h3>
+          <p>
+            당일 방문 가능 여부처럼 빠르게 답을 확인해야 할 때 편리합니다.
+            통화 후에는 확인된 내용을 직접 메모하세요.
+          </p>
+        </section>
+
+        <section class="channel-card">
+          <h3>카카오톡 문의</h3>
+          <p>
+            날짜와 인원, 공간 요청을 문장으로 남기고
+            답변 내용을 다시 확인하기 좋습니다.
+          </p>
+        </section>
+
+        <section class="channel-card">
+          <h3>텔레그램 문의</h3>
+          <p>
+            일정과 요청사항을 정리해 전달하고
+            변경된 내용을 같은 대화에서 이어가기 좋습니다.
+          </p>
+        </section>
+      </div>
+
+      <p>
+        빠른 답이 필요하다고 여러 채널에 동시에 같은 문의를 보내기보다
+        먼저 이용할 채널을 정하고 응답을 기다리는 것이 좋습니다.
+        다른 채널로 옮겨야 한다면 앞서 어떤 내용으로 문의했는지 함께 알려주세요.
+      </p>
+
+      <h2>2. 첫 문의에는 기본 정보만 한 번에 전달하세요</h2>
+
+      <table class="record-table">
+        <tbody>
+          <tr>
+            <th>방문 일정</th>
+            <td>방문 날짜와 실제 도착할 수 있는 시간대를 전달합니다.</td>
+          </tr>
+          <tr>
+            <th>예상 인원</th>
+            <td>확정 인원과 추가로 합류할 가능성이 있는 인원을 나눕니다.</td>
+          </tr>
+          <tr>
+            <th>공간 요청</th>
+            <td>전체 인원이 함께 앉는 자리 등 필요한 조건을 설명합니다.</td>
+          </tr>
+          <tr>
+            <th>픽업 여부</th>
+            <td>출발 위치와 희망 시각, 탑승 인원을 함께 전달합니다.</td>
+          </tr>
+          <tr>
+            <th>확인 요청</th>
+            <td>예약 가능 여부와 최종 확정 절차를 문의합니다.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>3. 통화 내용은 문자 형태로 다시 정리하세요</h2>
+
+      <p>
+        전화 문의는 빠르게 설명을 들을 수 있지만
+        시간이 지나면 서로 기억하는 내용이 달라질 수 있습니다.
+        통화가 끝난 직후 날짜와 인원, 공간 요청 및 예약 상태를
+        짧은 메모로 남겨두세요.
+      </p>
+
+      <ul class="check-list">
+        <li>통화하거나 답변받은 날짜와 시각</li>
+        <li>문의한 방문 날짜와 도착 예정 시간</li>
+        <li>확정 인원과 최대 예상 인원</li>
+        <li>안내받은 공간 및 픽업 조건</li>
+        <li>예약이 문의 중인지 최종 확정 상태인지</li>
+        <li>추가로 답을 받아야 하는 항목</li>
+      </ul>
+
+      <h2>4. 채널을 바꿀 때는 기존 문의를 먼저 설명하세요</h2>
+
+      <p>
+        전화 문의 후 카카오톡이나 텔레그램으로 이동한다면
+        새로운 문의처럼 처음부터 다른 내용을 보내지 않는 것이 좋습니다.
+        앞서 확인한 날짜와 인원, 예약 상태를 먼저 설명한 뒤
+        추가 질문이나 변경사항을 전달하세요.
+      </p>
+
+      <ol class="rule-list">
+        <li>
+          <strong>기존 문의 내용 표시</strong>
+          이전에 문의한 날짜와 인원, 이용 채널을 먼저 알립니다.
+        </li>
+
+        <li>
+          <strong>확인된 조건 정리</strong>
+          이미 안내받은 내용 가운데 유지할 조건을 적습니다.
+        </li>
+
+        <li>
+          <strong>새 질문만 구분</strong>
+          아직 확인하지 못한 항목이나 변경할 내용만 이어서 문의합니다.
+        </li>
+
+        <li>
+          <strong>최종 예약 상태 확인</strong>
+          새로운 채널에서도 예약이 정상적으로 이어지는지 확인합니다.
+        </li>
+      </ol>
+
+      <h2>5. 변경사항은 이전 정보와 함께 전달하세요</h2>
+
+      <p>
+        방문 시간이나 인원이 달라졌을 때 변경된 숫자만 보내면
+        어느 예약에 대한 내용인지 알기 어려울 수 있습니다.
+        기존 일정과 변경할 일정을 한 메시지 안에 함께 적어주세요.
+      </p>
+
+      <div class="message-box">
+        <p>강남 크크 쩜오 기존 문의 내용 변경 요청드립니다.</p>
+        <p>기존 일정: ○월 ○일 / 오후 ○시 / ○명</p>
+        <p>변경 일정: ○월 ○일 / 오후 ○시 / ○명</p>
+        <p>공간 요청: 전체 인원이 함께 이용 가능한 자리</p>
+        <p>픽업 희망: 출발 위치 ○○ / 탑승 ○명</p>
+        <p>변경 가능 여부와 최종 예약 상태를 안내 부탁드립니다.</p>
+      </div>
+
+      <h2>6. 픽업 문의도 같은 채널에서 관리하세요</h2>
+
+      <p>
+        예약은 카카오톡으로 문의하고 픽업은 전화로 별도로 요청하면
+        방문 인원이나 출발 시간이 서로 다르게 전달될 수 있습니다.
+        가능하면 예약 일정과 픽업 정보를 같은 대화 안에서 확인하세요.
+      </p>
+
+      <ul class="check-list">
+        <li>예약 인원과 실제 픽업 탑승 인원이 같은지</li>
+        <li>픽업을 요청한 시각과 방문 예정 시간이 연결되는지</li>
+        <li>출발 위치가 정확하게 전달되었는지</li>
+        <li>요청 단계인지 실제 배차가 확정된 상태인지</li>
+        <li>위치나 시간이 변경됐을 때 다시 확인했는지</li>
+      </ul>
+
+      <h2>7. 일행에게는 최종 확정 내용만 전달하세요</h2>
+
+      <p>
+        문의 과정의 모든 대화를 일행에게 그대로 전달하면
+        이전 조건과 최종 조건이 섞일 수 있습니다.
+        대표 문의자가 확정된 날짜와 시간, 인원, 공간 및 픽업 정보만
+        하나의 메시지로 정리해 공유하는 것이 좋습니다.
+      </p>
+
+      <p>
+        공식 페이지에 사용된 사진은 공용 연출 이미지로 안내되어 있습니다.
+        사진의 분위기는 참고하되 실제 크크의 공간과 좌석 배정은
+        예약 문의에서 확인한 최신 정보를 기준으로 판단하세요.
+      </p>
+
+      <div class="notice">
+        강남 크크 쩜오의 예약 가능 여부와 공간 배정,
+        영업시간 및 픽업서비스 조건은 일정에 따라 달라질 수 있습니다.
+        문의 채널에 남은 대화만 보지 말고 최종 확정 안내를 확인하세요.
+      </div>
+
+      <div class="reference">
+        <p>
+          강남 크크 쩜오 예약과 문의 채널 관련 최신 안내는
+          <a href="https://kekejeomo.clickn.co.kr/"
+             target="_blank"
+             rel="noopener noreferrer">
+            강남 크크 쩜오 공식 안내 페이지
+          </a>
+          에서 확인할 수 있습니다.
+        </p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
