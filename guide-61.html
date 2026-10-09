@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>강남 블렌딩 쩜오 공간 요청과 좌석 배정 확인법</title>
+  <meta name="description" content="강남 블렌딩 쩜오 예약 전 인원과 모임 목적에 맞는 공간을 요청하고 희망 좌석, 실제 배정, 변경 가능 여부를 확인하는 방법을 안내합니다.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f4f2f6;
+      color: #28252c;
+      font-family: Arial, "Malgun Gothic", sans-serif;
+      line-height: 1.8;
+    }
+
+    main {
+      width: min(830px, calc(100% - 32px));
+      margin: 48px auto;
+      padding: 46px 34px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 10px 32px rgba(57, 44, 67, .09);
+    }
+
+    h1 {
+      margin: 0 0 22px;
+      font-size: 32px;
+      line-height: 1.4;
+      color: #3b2d46;
+    }
+
+    h2 {
+      margin: 44px 0 16px;
+      font-size: 23px;
+      line-height: 1.5;
+      color: #6b4c7a;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: #583e65;
+    }
+
+    p,
+    li,
+    th,
+    td {
+      font-size: 16px;
+    }
+
+    .intro {
+      font-size: 17px;
+      color: #504a55;
+    }
+
+    .key-box {
+      margin: 30px 0;
+      padding: 22px;
+      background: #f3edf7;
+      border-left: 5px solid #806092;
+    }
+
+    .request-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 25px 0;
+    }
+
+    .request-card {
+      padding: 20px;
+      background: #faf9fb;
+      border: 1px solid #e4dce8;
+      border-radius: 9px;
+    }
+
+    .request-card p {
+      margin-bottom: 0;
+    }
+
+    .status-table {
+      width: 100%;
+      margin: 25px 0;
+      border-collapse: collapse;
+    }
+
+    .status-table th,
+    .status-table td {
+      padding: 15px;
+      border: 1px solid #ded8e2;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .status-table thead th {
+      background: #624972;
+      color: #fff;
+    }
+
+    .status-table tbody th {
+      width: 25%;
+      background: #f2edf4;
+      color: #563f62;
+    }
+
+    .step-list {
+      margin: 25px 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: step;
+    }
+
+    .step-list li {
+      position: relative;
+      margin: 15px 0;
+      padding: 20px 20px 20px 70px;
+      background: #f7f6f8;
+      border-radius: 9px;
+      counter-increment: step;
+    }
+
+    .step-list li::before {
+      content: counter(step);
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 34px;
+      height: 34px;
+      background: #755787;
+      color: #fff;
+      border-radius: 50%;
+      line-height: 34px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .step-list strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #563e64;
+    }
+
+    .message-box {
+      margin: 26px 0;
+      padding: 22px;
+      background: #302a34;
+      color: #fff;
+      border-radius: 9px;
+    }
+
+    .message-box p {
+      margin: 6px 0;
+    }
+
+    .check-list {
+      padding: 22px 24px 22px 44px;
+      background: #f4f5f6;
+      border-radius: 9px;
+    }
+
+    .check-list li {
+      margin: 8px 0;
+    }
+
+    .notice {
+      margin-top: 34px;
+      padding: 18px 20px;
+      background: #fff7e7;
+      border: 1px solid #ead5a5;
+      border-radius: 8px;
+    }
+
+    .reference {
+      margin-top: 42px;
+      padding-top: 24px;
+      border-top: 1px solid #ded9e1;
+    }
+
+    a {
+      color: #754995;
+      font-weight: 700;
+    }
+
+    @media (max-width: 680px) {
+      main {
+        margin: 20px auto;
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 27px;
+      }
+
+      h2 {
+        font-size: 21px;
+      }
+
+      .request-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .status-table th,
+      .status-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .status-table thead {
+        display: none;
+      }
+
+      .status-table tbody th {
+        border-bottom: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <article>
+      <h1>강남 블렌딩 쩜오 공간 요청과 좌석 배정 확인법</h1>
+
+      <p class="intro">
+        강남 블렌딩 쩜오 방문을 준비할 때는 단순히 좋은 공간을 요청하기보다
+        인원과 모임 방식에 맞는 조건을 구체적으로 전달하는 것이 좋습니다.
+        원하는 공간을 요청한 상태와 실제 공간 배정이 확정된 상태를
+        구분하면 방문 당일의 혼선을 줄일 수 있습니다.
+      </p>
+
+      <div class="key-box">
+        <strong>공간 요청은 희망사항이고 배정 확인은 확정 정보입니다.</strong><br>
+        요청을 전달한 뒤 반영 가능 여부와 실제 배정 시점,
+        변경 가능성을 차례로 확인하세요.
+      </div>
+
+      <h2>1. ‘좋은 자리’를 구체적인 조건으로 바꾸세요</h2>
+
+      <p>
+        좋은 자리나 편한 공간이라는 표현은 사람마다 의미가 다를 수 있습니다.
+        일행이 실제로 중요하게 생각하는 요소를
+        확인할 수 있는 문장으로 바꾸어 전달하세요.
+      </p>
+
+      <div class="request-grid">
+        <section class="request-card">
+          <h3>함께 앉는 좌석</h3>
+          <p>
+            최종 인원이 한 공간에서 함께 이용할 수 있는지 확인합니다.
+          </p>
+        </section>
+
+        <section class="request-card">
+          <h3>대화 환경</h3>
+          <p>
+            일행이 대화하기 편한 구성을 원하는지 구체적으로 전달합니다.
+          </p>
+        </section>
+
+        <section class="request-card">
+          <h3>공간 분리</h3>
+          <p>
+            다른 공간과 분리된 형태가 필요한지 미리 정리합니다.
+          </p>
+        </section>
+
+        <section class="request-card">
+          <h3>추가 합류</h3>
+          <p>
+            늦게 오는 일행이 있어도 같은 공간을 이용할 수 있는지 확인합니다.
+          </p>
+        </section>
+      </div>
+
+      <h2>2. 확정 인원과 예상 인원을 함께 전달하세요</h2>
+
+      <p>
+        현재 참석이 확정된 인원만 기준으로 공간을 요청하면
+        사람이 추가되었을 때 배정을 다시 확인해야 할 수 있습니다.
+        늦게 합류하거나 참석 여부가 정해지지 않은 사람이 있다면
+        최대 예상 인원까지 알려주는 것이 좋습니다.
+      </p>
+
+      <ul class="check-list">
+        <li>현재 참석이 확정된 인원</li>
+        <li>추가로 합류할 가능성이 있는 인원</li>
+        <li>처음 도착하는 사람의 수</li>
+        <li>늦게 오는 일행의 예상 도착 시각</li>
+        <li>최종 인원을 확정할 수 있는 시점</li>
+      </ul>
+
+      <h2>3. 공간 상태를 세 단계로 구분하세요</h2>
+
+      <table class="status-table">
+        <thead>
+          <tr>
+            <th>상태</th>
+            <th>확인할 내용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>희망 공간</th>
+            <td>
+              일행이 원하는 좌석 구성과 대화 환경을 전달한 상태입니다.
+            </td>
+          </tr>
+          <tr>
+            <th>반영 가능</th>
+            <td>
+              요청한 조건을 제공할 가능성이 있다는 안내를 받은 상태입니다.
+            </td>
+          </tr>
+          <tr>
+            <th>배정 확정</th>
+            <td>
+              방문 일정과 인원을 기준으로 실제 이용할 공간을 확인한 상태입니다.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        요청을 접수했다는 답만으로 원하는 공간이 확정되었다고 판단하지 마세요.
+        언제 배정이 결정되는지, 인원이나 도착 시간이 달라지면
+        기존 배정도 변경될 수 있는지 확인해야 합니다.
+      </p>
+
+      <h2>4. 사진의 분위기와 실제 공간을 구분하세요</h2>
+
+      <p>
+        공식 안내 페이지에서는 사용된 사진을
+        공용 연출 이미지로 안내하고 있습니다.
+        따라서 사진은 전체적인 분위기를 참고하는 자료로 살펴보고,
+        실제 블렌딩 내부와 좌석 배정 정보는 예약 문의에서 확인해야 합니다.
+      </p>
+
+      <p>
+        사진 속 좌석 수나 공간 크기를 기준으로
+        우리 일행이 모두 이용할 수 있다고 판단하지 마세요.
+        방문 날짜와 최종 예상 인원을 전달한 뒤
+        실제로 가능한 공간 구성을 확인하는 것이 정확합니다.
+      </p>
+
+      <h2>5. 공간 요청은 다음 순서로 진행하세요</h2>
+
+      <ol class="step-list">
+        <li>
+          <strong>일정과 인원 전달</strong>
+          방문 날짜, 도착 예정 시각과 최대 예상 인원을 알립니다.
+        </li>
+
+        <li>
+          <strong>필요한 공간 설명</strong>
+          함께 앉는 좌석이나 대화 환경처럼 중요한 조건을 전달합니다.
+        </li>
+
+        <li>
+          <strong>반영 가능 여부 확인</strong>
+          요청한 조건 가운데 실제로 적용할 수 있는 내용을 확인합니다.
+        </li>
+
+        <li>
+          <strong>배정 상태 확인</strong>
+          희망 공간이 아니라 실제 배정이 확정되었는지 확인합니다.
+        </li>
+
+        <li>
+          <strong>변경사항 전달</strong>
+          시간이나 인원이 달라지면 기존 배정을 유지할 수 있는지 물어봅니다.
+        </li>
+      </ol>
+
+      <h2>6. 문의 메시지에 공간 조건을 함께 넣으세요</h2>
+
+      <div class="message-box">
+        <p>강남 블렌딩 쩜오 이용 문의드립니다.</p>
+        <p>방문 날짜: ○월 ○일</p>
+        <p>도착 예정: 오후 ○시</p>
+        <p>확정 인원: ○명 / 최대 예상 인원: ○명</p>
+        <p>공간 요청: 전체 인원이 함께 앉을 수 있는 구성</p>
+        <p>요청 반영 가능 여부와 배정 확정 시점을 안내 부탁드립니다.</p>
+      </div>
+
+      <p>
+        픽업서비스도 함께 문의하려면 출발 위치와 희망 시각,
+        차량 탑승 인원을 추가로 전달하세요.
+        픽업을 요청한 상태와 실제 배차가 확정된 상태 역시
+        공간 배정과 마찬가지로 구분해야 합니다.
+      </p>
+
+      <h2>7. 출발 전에는 변경된 조건을 다시 맞추세요</h2>
+
+      <ul class="check-list">
+        <li>예약이 최종적으로 확정된 상태인지</li>
+        <li>현재 인원이 처음 문의한 인원과 같은지</li>
+        <li>희망 공간의 반영 여부를 안내받았는지</li>
+        <li>실제 공간 배정이 확정되었는지</li>
+        <li>늦게 합류하는 인원도 함께 이용할 수 있는지</li>
+        <li>픽업서비스를 이용한다면 배차가 확정되었는지</li>
+      </ul>
+
+      <div class="notice">
+        강남 블렌딩 쩜오의 실제 공간과 좌석 배정,
+        영업시간 및 픽업서비스 조건은 방문 일정과 인원에 따라 달라질 수 있습니다.
+        출발 전 최신 예약 내용과 확정된 배정을 확인하세요.
+      </div>
+
+      <div class="reference">
+        <p>
+          강남 블렌딩 쩜오 공간과 예약 관련 최신 안내는
+          <a href="https://blendingjeomo.clickn.co.kr/"
+             target="_blank"
+             rel="noopener noreferrer">
+            강남 블렌딩 쩜오 공식 안내 페이지
+          </a>
+          에서 확인할 수 있습니다.
+        </p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
