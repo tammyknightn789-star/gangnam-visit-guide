@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>강남 유니크 쩜오 공간 요청과 예약 변경 확인 가이드</title>
+  <meta name="description" content="강남 유니크 쩜오 방문 전 인원에 맞는 좌석과 공간을 요청하고 희망 공간과 확정 배정을 구분하며 일정 및 인원 변경을 관리하는 방법을 안내합니다.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f2f0ed;
+      color: #252525;
+      font-family: Arial, "Malgun Gothic", sans-serif;
+      line-height: 1.8;
+    }
+
+    main {
+      width: calc(100% - 32px);
+      max-width: 800px;
+      margin: 48px auto;
+      padding: 44px 32px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 7px 24px rgba(40, 35, 30, .08);
+    }
+
+    h1 {
+      margin: 0 0 24px;
+      font-size: 32px;
+      line-height: 1.4;
+      color: #24352f;
+    }
+
+    h2 {
+      margin: 44px 0 14px;
+      font-size: 22px;
+      line-height: 1.5;
+      color: #345a4c;
+    }
+
+    p,
+    li {
+      font-size: 16px;
+    }
+
+    .summary {
+      margin: 28px 0;
+      padding: 20px 22px;
+      background: #edf4f0;
+      border-left: 4px solid #487761;
+    }
+
+    .request-list {
+      margin: 22px 0;
+      padding: 20px 24px 20px 42px;
+      background: #fafafa;
+      border: 1px solid #dedede;
+      border-radius: 8px;
+    }
+
+    .status-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 26px 0;
+    }
+
+    .status-box section {
+      padding: 20px;
+      background: #f7f5f1;
+      border: 1px solid #ddd6ca;
+      border-radius: 8px;
+    }
+
+    .status-box h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #624c35;
+    }
+
+    .memo {
+      margin-top: 26px;
+      padding: 22px;
+      color: #f7f7f2;
+      background: #26352f;
+      border-radius: 8px;
+    }
+
+    .reference {
+      margin-top: 44px;
+      padding-top: 24px;
+      border-top: 1px solid #ddd;
+    }
+
+    a {
+      color: #32664f;
+      font-weight: bold;
+    }
+
+    @media (max-width: 640px) {
+      main {
+        margin: 20px auto;
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 27px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      .status-box {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <article>
+      <h1>강남 유니크 쩜오 공간 요청과 예약 변경 확인 가이드</h1>
+
+      <p>
+        강남 유니크 쩜오 방문을 준비할 때는 원하는 분위기만 전달하기보다
+        일행의 인원과 이용 방식에 맞춰 공간 조건을 구체적으로 정리하는 것이 좋습니다.
+        희망하는 공간과 실제로 배정된 공간을 구분하고,
+        일정이나 인원이 바뀌었을 때 확인할 내용도 미리 정해두세요.
+      </p>
+
+      <div class="summary">
+        공간을 요청했다는 사실만으로 배정이 확정되는 것은 아닙니다.
+        실제 반영 가능 여부와 최종 배정 상태를 확인한 뒤 방문 계획에 반영하세요.
+      </div>
+
+      <h2>1. 함께 방문하는 인원의 범위를 정하세요</h2>
+
+      <p>
+        공간 요청을 준비할 때는 현재 확정된 인원과
+        추가로 합류할 가능성이 있는 인원을 구분해야 합니다.
+        아직 참석 여부가 결정되지 않은 사람이 있다면
+        최소 인원과 최대 예상 인원을 함께 전달하는 것이 좋습니다.
+      </p>
+
+      <ul class="request-list">
+        <li>현재 참석이 확정된 인원</li>
+        <li>추가로 합류할 가능성이 있는 인원</li>
+        <li>모든 일행이 함께 앉아야 하는지</li>
+        <li>따로 도착할 사람이 있는지</li>
+        <li>최종 인원을 확정할 수 있는 시점</li>
+      </ul>
+
+      <h2>2. 원하는 이용 방식을 문장으로 설명하세요</h2>
+
+      <p>
+        ‘편한 자리’나 ‘좋은 분위기’라는 표현은
+        사람마다 다르게 받아들일 수 있습니다.
+        대화를 중심으로 이용할 예정인지, 전체 인원이 함께 앉아야 하는지,
+        공간 분리가 필요한지처럼 확인할 수 있는 조건으로 바꿔 전달하세요.
+      </p>
+
+      <p>
+        요청 사항이 여러 개라면 반드시 필요한 조건과
+        가능하면 반영되기를 원하는 조건을 나누는 것이 좋습니다.
+        우선순위가 분명하면 실제로 가능한 공간을 안내받을 때
+        어떤 항목을 먼저 비교해야 하는지 판단하기 쉽습니다.
+      </p>
+
+      <h2>3. 희망 공간과 확정 배정을 구분하세요</h2>
+
+      <div class="status-box">
+        <section>
+          <h3>희망 공간</h3>
+          <p>
+            인원과 방문 목적을 기준으로 요청한 좌석 구성이나
+            대화 환경을 의미합니다. 아직 반영 여부가 결정되지 않은 상태입니다.
+          </p>
+        </section>
+
+        <section>
+          <h3>확정된 공간</h3>
+          <p>
+            요청 사항의 가능 여부를 확인하고 실제 배정 안내를 받은 상태입니다.
+            배정 시점과 변경 가능성도 함께 확인하는 것이 좋습니다.
+          </p>
+        </section>
+      </div>
+
+      <p>
+        예약 과정에서는 요청을 전달한 시점과
+        공간 배정을 확인한 시점을 따로 기록하세요.
+        당일 상황에 따라 달라질 수 있는 조건이 있다면
+        언제 최종적으로 확인할 수 있는지도 알아두는 것이 좋습니다.
+      </p>
+
+      <h2>4. 페이지 사진은 공간 분위기 참고용으로 보세요</h2>
+
+      <p>
+        안내 페이지에 사용된 사진은 공용 연출 이미지이며,
+        유니크의 실제 내부 사진이 아니라고 명시되어 있습니다.
+        사진에 보이는 좌석이나 조명, 공간 구조가
+        실제 방문 시 배정되는 공간과 같다고 판단해서는 안 됩니다.
+      </p>
+
+      <p>
+        현재 공간 구성과 좌석 배치에 관한 내용은 예약 문의 과정에서 확인하세요.
+        사진에서 마음에 든 부분이 있다면 이미지 자체를 기준으로 확정하기보다
+        필요한 좌석 형태나 공간 조건을 구체적으로 설명하는 편이 정확합니다.
+      </p>
+
+      <h2>5. 도착 시간이 바뀌면 이용 가능 여부를 다시 확인하세요</h2>
+
+      <p>
+        앞선 일정이 늦어져 도착 예정 시각이 달라졌다면
+        변경된 시간에도 이용할 수 있는지 확인해야 합니다.
+        기존 예약의 시간만 기억하고 이동하기보다
+        변경 내용을 먼저 전달하고 현재 예약 상태를 다시 맞춰보세요.
+      </p>
+
+      <p>
+        따로 합류하는 일행이 있다면 각자의 도착 예정 시각과
+        인원을 함께 정리하는 것이 좋습니다.
+        최종 인원이 달라질 경우에는 기존 공간 배정을 유지할 수 있는지도
+        다시 확인한 뒤 일행에게 변경 내용을 공유하세요.
+      </p>
+
+      <h2>6. 변경 사항은 항목별로 전달하세요</h2>
+
+      <p>
+        날짜, 시간, 인원이 동시에 바뀌면 기존 문의 내용과
+        새로운 조건이 섞일 수 있습니다.
+        달라진 항목을 먼저 표시하고 나머지 조건은 유지되는지 확인하면
+        예약 내용을 보다 정확하게 정리할 수 있습니다.
+      </p>
+
+      <ul class="request-list">
+        <li>변경된 방문 날짜 또는 도착 시각</li>
+        <li>늘거나 줄어든 인원</li>
+        <li>새롭게 필요한 공간 조건</li>
+        <li>기존 공간 배정의 유지 가능 여부</li>
+        <li>최종 예약이 다시 확정되었는지</li>
+      </ul>
+
+      <h2>7. 문의 상태와 예약 완료 상태를 표시하세요</h2>
+
+      <p>
+        날짜와 인원, 공간 요청을 전달한 것은 문의 단계에 해당할 수 있습니다.
+        요청한 일정의 이용 가능 여부와 실제 공간 배정을 확인하고
+        최종 예약 확정 안내를 받은 뒤 일행에게 전달하세요.
+      </p>
+
+      <div class="memo">
+        <strong>예약 상태 기록 예시</strong>
+        <p>
+          날짜·시간: 확인 완료<br>
+          최종 인원: ○명<br>
+          공간 요청: 전달 완료<br>
+          공간 배정: 확인 전 또는 확정<br>
+          변경 가능성: 있음 또는 없음<br>
+          최종 예약 상태: 문의 중 또는 확정
+        </p>
+      </div>
+
+      <h2>8. 이동 지원이 필요하면 예약과 함께 확인하세요</h2>
+
+      <p>
+        픽업서비스가 필요하다면 출발 위치와 희망 시각,
+        실제 탑승 인원을 예약 내용과 함께 전달할 수 있습니다.
+        픽업 요청과 배차 확정은 구분해야 하며,
+        실제 가능 여부와 만날 지점을 확인한 뒤 이동을 준비하세요.
+      </p>
+
+      <div class="reference">
+        <p>
+          강남 유니크 쩜오의 공간 요청과 예약 방법,
+          픽업서비스 관련 안내는
+          <a href="https://uniquejeomo.clickn.co.kr/"
+             target="_blank"
+             rel="noopener noreferrer">
+            강남 유니크 쩜오 이용 안내 페이지
+          </a>
+          에서 확인할 수 있습니다.
+        </p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
